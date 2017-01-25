@@ -1,0 +1,10 @@
+[user]
+	name = banyan
+	email = rong_z@163.com
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
