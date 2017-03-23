@@ -18,3 +18,14 @@ if [ -e ~/.bash_aliases ] || [ -L ~/.bash_aliases ]; then
 fi
 ln -s $curpath/bash_aliases ~/.bash_aliases
 
+if [ -e ~/git-completion.bash ] || [ -L ~/git-completion.bash ]; then
+    rm ~/git-completion.bash
+fi
+ln -s $curpath/git-completion.bash ~/git-completion.bash
+
+if grep "git-completion.bash" $HOME/.bashrc >/dev/null
+then
+    :
+else
+    echo ". ~/git-completion.bash" >> $HOME/.bashrc
+fi
