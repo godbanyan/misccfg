@@ -1,0 +1,5 @@
+colorscheme desertEx
+let g:indent_guides_auto_colors = 0
+hi clear IndentGuidesEven
+hi clear IndentGuidesOdd
+hi clear cursorline
