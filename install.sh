@@ -1,23 +1,21 @@
 #!/bin/bash
-curpath=$(pwd)
+curpath=~/misccfg
 gitcfg=~/.gitconfig
 vrc=~/.vimrc
+sh_ali=~/.bash_aliases
 
-if [ -e ~/.gitconfig ] || [ -L ~/.gitconfig ]; then
-    rm $gitcfg
+ln -sf $curpath/gitconfig $gitcfg
+
+ln -sf $curpath/vimrc $vrc
+
+ln -sf $curpath/bash_aliases $sh_ali
+
+if [ -d ~/.spf13-vim-3 ]; then
+    source spf13cfg/install.sh
+    ln -sf ~/.spf13-vim-3/.vimrc $vrc
 fi
-ln -s $curpath/gitconfig ~/.gitconfig
 
-if [ -e ~/.vimrc ] || [ -L ~/.vimrc ]; then
-    rm ~/.vimrc
-fi
-ln -s $curpath/vimrc ~/.vimrc
-
-if [ -e ~/.bash_aliases ] || [ -L ~/.bash_aliases ]; then
-    rm ~/.bash_aliases
-fi
-ln -s $curpath/bash_aliases ~/.bash_aliases
-
+##### for git
 #if [ -e ~/git-completion.bash ] || [ -L ~/git-completion.bash ]; then
 #    rm ~/git-completion.bash
 #fi
