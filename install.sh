@@ -1,5 +1,5 @@
 #!/bin/bash
-curpath=~/misccfg
+curpath=$(cd `dirname $0`; pwd)
 gitcfg=~/.gitconfig
 vrc=~/.vimrc
 sh_ali=~/.bash_aliases
@@ -13,6 +13,10 @@ ln -sf $curpath/bash_aliases $sh_ali
 if [ -d ~/.spf13-vim-3 ]; then
     source spf13cfg/install.sh
     ln -sf ~/.spf13-vim-3/.vimrc $vrc
+fi
+
+if tmux -V 1>/dev/null 2>&1 ;then
+	ln -sf $curpath/tmux.conf ~/.tmux.conf
 fi
 
 ##### for git
