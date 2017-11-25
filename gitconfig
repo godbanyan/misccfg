@@ -8,3 +8,6 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+	ld = log --oneline --decorate --all --graph
+[core]
+	editor = vim
