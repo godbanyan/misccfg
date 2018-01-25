@@ -85,7 +85,7 @@ cnoremap jk <c-c>
 noremap! <esc> <nop>
 
 "edit and source my .vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "Use alt+k or alt+j to move current line up or down. 
@@ -122,15 +122,19 @@ augroup filetype_c
 	autocmd!
 	packadd! nerdtree
 	packadd! tagbar
-	autocmd vimenter,filetype c,cpp,h NERDTree | Tagbar
+
+	autocmd FileType c,cpp let maplocalleader = "\<space>"
+	autocmd FileType c,cpp nnoremap <buffer> <c-]> g<c-]>
+	autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
+	autocmd FileType c,cpp nnoremap <buffer> <localleader>uc ^xx
+	autocmd FileType c,cpp vnoremap <buffer> <localleader>c <esc>`<<c-v>`>I//<esc>
+	autocmd FileType c,cpp vnoremap <buffer> <localleader>uc <esc>`<<c-v>`>^lx
+	autocmd FileType c,cpp nnoremap <buffer> ' :TagbarOpen jf<cr>
+	autocmd FileType c,cpp nnoremap <buffer> ; :NERDTreeFocus<cr>
+
+	autocmd vimenter c,cpp NERDTree | TagbarOpen 
 	autocmd vimenter * wincmd l
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-	autocmd FileType c let maplocalleader = "\<space>"
-	autocmd FileType c nnoremap <buffer> <c-]> g<c-]>
-	autocmd FileType c nnoremap <buffer> <localleader>c I//<esc>
-	autocmd FileType c nnoremap <buffer> <localleader>uc ^xx
-	autocmd FileType c vnoremap <buffer> <localleader>c <esc>`<<c-v>`>I//<esc>
-	autocmd FileType c vnoremap <buffer> <localleader>uc <esc>`<<c-v>`>^lx
 augroup END
 " }}}
