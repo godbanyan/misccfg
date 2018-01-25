@@ -46,6 +46,21 @@ if has('packages') && has('syntax') && has('eval')
 
 endif
 
+" when using 'vim' alt-prefixing key should be remapped
+if v:progname ==? "vim"
+	
+	"Use alt+k or alt+j to move current line up or down. 
+	nnoremap j ddp
+	nnoremap k kddpk
+
+	"Change case of current word.
+	inoremap u <esc>guiwea
+	inoremap U <esc>gUiwea
+	nnoremap u guiwe
+	nnoremap U gUiwe
+
+endif
+
 " ------- Basic Settings ------------- {{{
 set laststatus=2			"always show statusline
 set showcmd					"show commands while you are typing
@@ -88,19 +103,9 @@ noremap! <esc> <nop>
 nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-"Use alt+k or alt+j to move current line up or down. 
-nnoremap k mqkddp`q
-nnoremap j mqjddkP`q
-
-"Change case of current word.
-inoremap u <esc>guiwea
-inoremap U <esc>gUiwea
-nnoremap u guiwe
-nnoremap U gUiwe
-
 "wrap selected contents in quotes
-vnoremap " <esc>`<i"<esc>`>a"<esc>
-vnoremap ' <esc>`<i'<esc>`>a'<esc>
+vnoremap " <esc>`>a"<esc>`<i"<esc>
+vnoremap ' <esc>`>a'<esc>`<i'<esc>
 
 nnoremap H ^
 nnoremap L $
