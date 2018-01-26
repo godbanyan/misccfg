@@ -2,7 +2,13 @@
 curpath=$(cd `dirname $0`; pwd)
 gitcfg=~/.gitconfig
 vrc=~/.vimrc
+gvrc=~/.gvimrc
 sh_ali=~/.bash_aliases
+
+# when installed in windows
+if [ -n $WINDIR ]; then
+	ln -sf $curpath/gvimrc $gvrc
+fi
 
 ln -sf $curpath/gitconfig $gitcfg
 
