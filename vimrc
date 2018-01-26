@@ -42,6 +42,7 @@ endif " has("autocmd")
 " loaded during initialization.
 if has('packages') && has('syntax') && has('eval')
 	
+	set packpath+=~/.vim
 	packadd! matchit
 
 endif
@@ -99,7 +100,7 @@ inoremap jk <esc>l
 cnoremap jk <c-c>
 noremap! <esc> <nop>
 
-"edit and source my .vimrc
+"edit and source my .vimrc 
 nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -135,9 +136,9 @@ augroup filetype_c
 	autocmd FileType c,cpp vnoremap <buffer> <localleader>c <esc>`<<c-v>`>I//<esc>
 	autocmd FileType c,cpp vnoremap <buffer> <localleader>uc <esc>`<<c-v>`>^lx
 	autocmd FileType c,cpp nnoremap <buffer> ' :TagbarOpen jf<cr>
-	autocmd FileType c,cpp nnoremap <buffer> ; :NERDTreeFocus<cr>
+	autocmd FileType c,cpp nnoremap <buffer> <c-n> :NERDTreeFocus<cr>
 
-	autocmd vimenter c,cpp NERDTree | TagbarOpen 
+	autocmd vimenter * NERDTree | TagbarOpen 
 	autocmd vimenter * wincmd l
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
