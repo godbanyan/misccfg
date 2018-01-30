@@ -116,6 +116,6 @@ nnoremap H ^
 nnoremap L $
 " }}}
 
-autocmd filetype vim so $HOME/.vim/plugin/filetype-vim.vim
-autocmd filetype c,cpp so $HOME/.vim/plugin/filetype-c.vim
-autocmd filetype python so $HOME/.vim/plugin/filetype-py.vim
+autocmd filetype vim so $HOME/.vim/filetype/filetype-vim.vim
+autocmd filetype c,cpp so $HOME/.vim/filetype/filetype-c.vim
+autocmd filetype python so $HOME/.vim/filetype/filetype-py.vim
