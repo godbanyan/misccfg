@@ -44,6 +44,12 @@ if has('packages') && has('syntax') && has('eval')
 	
 	set packpath+=~/.vim
 	packadd! matchit
+	packadd! nerdtree
+	packadd! tagbar
+
+	autocmd vimenter * NERDTree | TagbarOpen
+	autocmd vimenter * wincmd l
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:nerdtree") && b:nerdtree.istabtree()) | q | endif
 
 endif
 
@@ -91,10 +97,8 @@ nnoremap <c-w>m <c-w>_<c-w>\|
 cnoremap <c-p> <Up>
 cnoremap <c-n> <Down>
 
-"switch on highlighting
-nnoremap <leader>N :set hlsearch<cr>
-"switch off highlighting
-nnoremap <leader>n :set nohlsearch<cr>
+" toggle highlighting.
+nnoremap <silent> <leader>n :set hlsearch!<cr>
 
 inoremap jk <esc>l
 cnoremap jk <c-c>
@@ -112,35 +116,6 @@ nnoremap H ^
 nnoremap L $
 " }}}
 
-" ------- vimscript file settings ---------------------- {{{
-augroup filetype_vim
-	autocmd!
-	"autocmd filetype vim setlocal foldmethod=marker
-	autocmd filetype vim let maplocalleader = "\<space>"
-	autocmd filetype vim nnoremap <buffer> <localleader>c I"<esc>
-	autocmd filetype vim nnoremap <buffer> <localleader>uc ^x<esc>
-	autocmd filetype vim vnoremap <buffer> <localleader>c <esc>`<<c-v>`>I"<esc>
-augroup end
-" }}}
-
-" ------- c/c++ file settings ---------------------- {{{
-augroup filetype_c
-	autocmd!
-	packadd! nerdtree
-	packadd! tagbar
-
-	autocmd FileType c,cpp let maplocalleader = "\<space>"
-	autocmd FileType c,cpp nnoremap <buffer> <c-]> g<c-]>
-	autocmd FileType c,cpp nnoremap <buffer> <localleader>c I//<esc>
-	autocmd FileType c,cpp nnoremap <buffer> <localleader>uc ^xx
-	autocmd FileType c,cpp vnoremap <buffer> <localleader>c <esc>`<<c-v>`>I//<esc>
-	autocmd FileType c,cpp vnoremap <buffer> <localleader>uc <esc>`<<c-v>`>^lx
-	autocmd FileType c,cpp nnoremap <buffer> ' :TagbarOpen jf<cr>
-	autocmd FileType c,cpp nnoremap <buffer> <c-n> :NERDTreeFocus<cr>
-
-	autocmd vimenter * NERDTree | TagbarOpen 
-	autocmd vimenter * wincmd l
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-augroup END
-" }}}
+autocmd filetype vim so $HOME/.vim/plugin/filetype-vim.vim
+autocmd filetype c,cpp so $HOME/.vim/plugin/filetype-c.vim
+autocmd filetype python so $HOME/.vim/plugin/filetype-py.vim
