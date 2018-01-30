@@ -16,7 +16,7 @@ ln -sf $curpath/vimrc $vrc
 
 ln -sf $curpath/bash_aliases $sh_ali
 
-cp -rf $curpath/.vim ~/
+cp -rf $curpath/vim ~/.vim
 
 if tmux -V 1>/dev/null 2>&1 ;then
 	ln -sf $curpath/tmux.conf ~/.tmux.conf
