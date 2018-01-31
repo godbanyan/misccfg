@@ -49,7 +49,7 @@ if has('packages') && has('syntax') && has('eval')
 
 	autocmd vimenter * NERDTree | TagbarOpen
 	autocmd vimenter * wincmd l
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:nerdtree") && b:nerdtree.istabtree()) | q | endif
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 endif
 
