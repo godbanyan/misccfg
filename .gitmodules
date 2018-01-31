@@ -6,3 +6,6 @@ url = https://github.com/scrooloose/nerdtree
 path = vim/pack/dist/opt/tagbar
 url = https://github.com/majutsushi/tagbar
 
+[submodule "ctags"]
+	path = ctags
+	url = https://github.com/universal-ctags/ctags
