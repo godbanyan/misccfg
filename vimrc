@@ -109,7 +109,7 @@ nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "edit filetype specific file 
-nnoremap <leader>ef :let @@='$HOME\.vim\filetype\filetype-' . &filetype . '.vim'<cr>:split <c-r>"<cr>
+nnoremap <leader>ef :let @@='$HOME\.vim\filetype\' . &filetype . '.vim'<cr>:split <c-r>"<cr>
 
 "wrap selected contents in quotes
 vnoremap " <esc>`>a"<esc>`<i"<esc>
@@ -119,6 +119,6 @@ nnoremap H ^
 nnoremap L $
 " }}}
 
-autocmd filetype vim so $HOME/.vim/filetype/filetype-vim.vim
-autocmd filetype c,cpp so $HOME/.vim/filetype/filetype-c.vim
-autocmd filetype python so $HOME/.vim/filetype/filetype-py.vim
+autocmd filetype vim so $HOME/.vim/filetype/vim.vim
+autocmd filetype c,cpp so $HOME/.vim/filetype/c.vim
+autocmd filetype python so $HOME/.vim/filetype/python.vim
