@@ -109,8 +109,8 @@ nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "edit and source filetype specific file 
-nnoremap <silent> <leader>ef :let @@='$HOME\.vim\filetype\' . &filetype . '.vim'<cr>:split <c-r>"<cr>
-nnoremap <silent> <leader>sf :let @@='$HOME\.vim\filetype\' . &filetype . '.vim'<cr>:source <c-r>"<cr>
+nnoremap <silent> <leader>ef :let @@='$HOME/.vim/filetype/' . &filetype . '.vim'<cr>:split <c-r>"<cr>
+nnoremap <silent> <leader>sf :let @@='$HOME/.vim/filetype/' . &filetype . '.vim'<cr>:source <c-r>"<cr>
 
 "wrap selected contents in quotes
 vnoremap " <esc>`>a"<esc>`<i"<esc>
