@@ -15,6 +15,9 @@ inoremap <m-U> <esc>gUiwea
 nnoremap <m-u> guiwe
 nnoremap <m-U> gUiwe
 
+" Turn of all bars
+set guioptions=eg
+" Don't use alt keys for menus
 set winaltkeys=no
 autocmd GUIEnter * set gfn=Consolas:h14
 autocmd GUIEnter * colorscheme evening
