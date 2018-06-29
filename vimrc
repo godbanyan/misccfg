@@ -44,12 +44,13 @@ if has('packages') && has('syntax') && has('eval')
 	
 	set packpath+=~/.vim
 	packadd! matchit
-	packadd! nerdtree
-	packadd! tagbar
 
-	autocmd vimenter * NERDTree | TagbarOpen
-	autocmd vimenter * wincmd l
-	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"	packadd! nerdtree
+"	packadd! tagbar
+"
+"	autocmd vimenter * NERDTree | TagbarOpen
+"	autocmd vimenter * wincmd l
+"	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 endif
 
