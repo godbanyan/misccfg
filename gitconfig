@@ -9,7 +9,6 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	ld = log --oneline --decorate --all --graph
-	pg = push ssh://rong.zhang@10.0.0.160:29418/chipram HEAD:refs/for/sprdroid6.0_whale_dev
 [core]
 	editor = vim
 [color]
