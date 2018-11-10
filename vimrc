@@ -58,8 +58,11 @@ endif
 if v:progname ==? "vim"
 	
 	"Use alt+k or alt+j to move current line up or down. 
-	nnoremap j ddp
-	nnoremap k kddpk
+	nnoremap <silent> j :.m .+1<cr>
+	nnoremap <silent> k :.m .-2<cr>
+
+	vnoremap <silent> j :m '>+1<cr>gv
+	vnoremap <silent> k :m '<-2<cr>gv
 
 	"Change case of current word.
 	inoremap u <esc>guiwea
@@ -98,7 +101,7 @@ nnoremap <c-w>m <c-w>_<c-w>\|
 cnoremap <c-p> <Up>
 cnoremap <c-n> <Down>
 
-" toggle highlighting.
+"toggle highlighting.
 nnoremap <silent> <leader>n :set hlsearch!<cr>
 
 inoremap jk <esc>l
@@ -106,8 +109,8 @@ cnoremap jk <c-c>
 noremap! <esc> <nop>
 
 "edit and source my .vimrc 
-nnoremap <leader>ev :split $MYVIMRC<cr><c-w>_
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <silent> <leader>ev :split $MYVIMRC<cr><c-w>_
+nnoremap <silent> <leader>sv :source $MYVIMRC<cr> :echo "vimrc updated!"<cr>
 
 "edit and source filetype specific file 
 nnoremap <silent> <leader>ef :let @@='$HOME/.vim/filetype/' . &filetype . '.vim'<cr>:split <c-r>"<cr>
