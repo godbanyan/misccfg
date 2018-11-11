@@ -88,6 +88,8 @@ set incsearch
 set wildmenu
 set wildmode=full
 
+"statusline
+set statusline=%l,%c%V\ %m%=%p%%\ -\ %L\ %F 
 " }}}
 
 " ------- Mappings -------------------------- {{{
