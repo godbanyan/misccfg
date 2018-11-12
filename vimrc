@@ -88,8 +88,19 @@ set incsearch
 set wildmenu
 set wildmode=full
 
-"statusline
-set statusline=%l,%c%V\ %m%=%p%%\ -\ %L\ %F 
+"statusline 
+" Show EOL type and last modified timestamp, right after the filename
+" Set the statusline
+set statusline=%f               " filename relative to current $PWD
+set statusline+=%h              " help file flag
+set statusline+=%m              " modified flag
+set statusline+=%r              " readonly flag
+set statusline+=\ [%{&ff}]      " Fileformat [unix]/[dos] etc...
+set statusline+=\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})  " last modified timestamp
+set statusline+=%=              " Rest: right align
+set statusline+=%l,%c%V         " Position in buffer: linenumber, column, virtual column
+set statusline+=\ %P            " Position in buffer: Percentage
+set statusline+=\ -\ %L			" Number of lines in buffer
 " }}}
 
 " ------- Mappings -------------------------- {{{
@@ -108,7 +119,6 @@ nnoremap <silent> <leader>n :set hlsearch!<cr>
 
 inoremap jk <esc>l
 cnoremap jk <c-c>
-noremap! <esc> <nop>
 
 "edit and source my .vimrc 
 nnoremap <silent> <leader>ev :split $MYVIMRC<cr><c-w>_
